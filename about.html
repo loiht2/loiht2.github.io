@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Thanh-Loi Hoang</title>
+  <meta name="description" content="About Thanh-Loi Hoang — Cloud Computing, Cloud‑Native Systems, and ML Platforms on Cloud." />
+  <link rel="canonical" href="https://loiht2.github.io/about.html" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://loiht2.github.io/rss.xml" />
+  <meta property="og:title" content="About — Thanh-Loi Hoang" />
+  <meta property="og:description" content="Cloud Computing, Cloud‑Native Systems, and ML Platforms on Cloud." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✨</text></svg>">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/main.js" defer></script>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><a href="index.html">Thanh-Loi Hoang</a></div>
+      <div class="menu" id="menu" role="navigation" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="blog.html">Writing</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="cv.html">CV</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="pill a-clean" href="https://github.com/loiht2" target="_blank" rel="noopener">GitHub</a>
+        <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()" aria-controls="menu" aria-expanded="false">Menu</button>
+    </div>
+  </nav>
+
+  <header class="container hero">
+    <h1>About</h1>
+    <p class="sub">No pain no gain. Master’s student at Soongsil University focused on Cloud Computing, Cloud‑Native Systems, and ML Platforms on Cloud.</p>
+  </header>
+
+  <section>
+    <div class="container grid cols-2">
+      <div>
+        <h2>Bio</h2>
+        <p>I'm Thanh‑Loi Hoang. I enjoy designing and operating cloud‑native systems, and building practical ML platforms on Kubernetes.</p>
+        <p>Current interests include MLOps tooling, scheduling AI/ML workloads, and platform reliability.</p>
+      </div>
+      <div class="card">
+        <h3>Skills</h3>
+        <ul>
+          <li>Kubernetes, Docker</li>
+          <li>Python, Go, Bash Script</li>
+          <li>C/C++, JavaScript</li>
+          <li>Cloud‑Native, MLOps</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  
+
+  <section>
+    <div class="container">
+      <h2>Highlights</h2>
+      <div class="card">
+        <h3>MLOps Platforms (DCNLab)</h3>
+        <ul>
+          <li>Surveyed mainstream MLOps platforms → selected Kubeflow</li>
+          <li>Evaluated schedulers for AI/ML workloads → Kueue, Volcano</li>
+          <li>Implementation details: coming soon</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photos: moved to bottom, full-bleed -->
+  <section id="photos">
+    <div class="container">
+      <h2>Photos</h2>
+    </div>
+    <div class="full-bleed">
+      <div class="marquee" aria-label="Personal photos scrolling" style="--img-h: 360px;">
+        <div class="marquee__track">
+          <figure>
+            <img src="assets/images/photo1.jpg" alt="Photo 1" loading="lazy" decoding="async">
+            <figcaption>Photo 1 caption</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/photo2.jpg" alt="Photo 2" loading="lazy" decoding="async">
+            <figcaption>Photo 2 caption</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/photo3.jpg" alt="Photo 3" loading="lazy" decoding="async">
+            <figcaption>Photo 3 caption</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/photo4.jpg" alt="Photo 4" loading="lazy" decoding="async">
+            <figcaption>Photo 4 caption</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/images/photo5.jpg" alt="Photo 5" loading="lazy" decoding="async">
+            <figcaption>Photo 5 caption</figcaption>
+          </figure>
+          <!-- duplicate set for seamless loop -->
+          <figure aria-hidden="true">
+            <img src="assets/images/photo1.jpg" alt="" loading="lazy" decoding="async">
+            <figcaption aria-hidden="true">Photo 1 caption</figcaption>
+          </figure>
+          <figure aria-hidden="true">
+            <img src="assets/images/photo2.jpg" alt="" loading="lazy" decoding="async">
+            <figcaption aria-hidden="true">Photo 2 caption</figcaption>
+          </figure>
+          <figure aria-hidden="true">
+            <img src="assets/images/photo3.jpg" alt="" loading="lazy" decoding="async">
+            <figcaption aria-hidden="true">Photo 3 caption</figcaption>
+          </figure>
+          <figure aria-hidden="true">
+            <img src="assets/images/photo4.jpg" alt="" loading="lazy" decoding="async">
+            <figcaption aria-hidden="true">Photo 4 caption</figcaption>
+          </figure>
+          <figure aria-hidden="true">
+            <img src="assets/images/photo5.jpg" alt="" loading="lazy" decoding="async">
+            <figcaption aria-hidden="true">Photo 5 caption</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container" style="padding:40px 0 60px;color:var(--muted);text-align:center">
+    <small>© <span id="year"></span> Thanh-Loi Hoang.</small>
+  </footer>
+</body>
+</html>
