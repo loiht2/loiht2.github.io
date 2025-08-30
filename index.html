@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" class="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>👋 Thanh-Loi Hoang — Personal Site</title>
+  <meta name="description" content="No pain no gain. Master's student at Soongsil University researching Cloud Computing, Cloud‑Native Systems, and ML Platforms on Cloud." />
+  <link rel="canonical" href="https://loiht2.github.io/" />
+  <meta property="og:title" content="Thanh-Loi Hoang — Personal Site" />
+  <meta property="og:description" content="No pain no gain. Master's student at Soongsil University researching Cloud Computing, Cloud‑Native Systems, and ML Platforms on Cloud." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>✨</text></svg>">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://loiht2.github.io/rss.xml" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/main.js?v=2" defer></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thanh-Loi Hoang",
+    "url": "https://loiht2.github.io/",
+    "image": "https://github.com/loiht2.png",
+    "jobTitle": "Master's Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Soongsil University"
+    },
+    "sameAs": [
+      "https://github.com/loiht2"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip">Skip to content</a>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand"><a href="index.html">Thanh-Loi Hoang</a></div>
+      <div class="menu" id="menu" role="navigation" aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Writing</a>
+        <a href="#projects">Projects</a>
+        <a href="cv.html">CV</a>
+        <a href="#contact">Contact</a>
+        <a class="pill" href="https://github.com/loiht2" target="_blank" rel="noopener">GitHub</a>
+        <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme" aria-pressed="false">🌓</button>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()" aria-controls="menu" aria-expanded="false">Menu</button>
+    </div>
+  </nav>
+  
+
+  <header class="hero container" id="main">
+    <div class="avatar-wrap" style="--size: 256px;">
+      <img class="avatar" src="https://github.com/loiht2.png" alt="Avatar of Thanh-Loi Hoang" width="256" height="256" decoding="async" fetchpriority="high" />
+    </div>
+    <div class="kicker">NO PAIN NO GAIN</div>
+    <h1>Hi, I’m <span class="tag" id="role" aria-live="polite">Thanh-Loi Hoang</span>.</h1>
+    <p class="sub">Master’s student at Soongsil University with research interests in Cloud Computing, Cloud‑Native Systems, and Machine Learning Platforms on Cloud.</p>
+    <div class="cta">
+      <a class="btn" href="blog.html">Read my writing</a>
+      <a class="btn secondary" href="#projects">See my work</a>
+    </div>
+  </header>
+
+  <section id="featured">
+    <div class="container">
+      <h2>Featured Writing</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3><a class="a-clean" href="posts/hello-world.html">Hello, world</a></h3>
+          <p class="muted">An introduction post — placeholder.</p>
+        </article>
+        <article class="card">
+          <h3><a class="a-clean" href="blog.html">On Cloud‑Native and MLOps</a></h3>
+          <p class="muted">Notes on platforms and schedulers. More soon.</p>
+        </article>
+        <article class="card">
+          <h3><a class="a-clean" href="blog.html">Building reliable platforms</a></h3>
+          <p class="muted">A short essay series — coming soon.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container grid cols-2">
+      <div>
+        <h2>About</h2>
+        <p>Master’s student at Soongsil University with research interests in Cloud Computing, Cloud‑Native Systems, and Machine Learning Platforms on Cloud.</p>
+        <ul>
+          <li><strong>Skills:</strong> Kubernetes, Docker, Python, Go, Bash Script, C/C++, JavaScript</li>
+          <li><strong>Currently:</strong> Building cloud‑native systems and ML platforms</li>
+          <li><strong>Motto:</strong> No pain no gain</li>
+        </ul>
+      </div>
+      <div class="callout">
+        <p><strong>How to customize</strong></p>
+        <ol>
+          <li>Change the title and text in <code>&lt;head&gt;</code> and the hero.</li>
+          <li>Swap the avatar URL for your own image.</li>
+          <li>Update project cards below. Add links!</li>
+        </ol>
+        <p class="muted">Tip: You can split this into multiple pages later (e.g., <code>projects.html</code>) and link them from the navbar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <div class="pill">Featured</div>
+          <h3>MLOps Platforms (DCNLab)</h3>
+          <p class="muted">Exploring and implementing end‑to‑end MLOps on Kubernetes.</p>
+          <ul class="muted">
+            <li>Surveyed mainstream MLOps platforms → chose Kubeflow</li>
+            <li>Evaluated AI/ML workload schedulers → Kueue, Volcano</li>
+          </ul>
+          <p><a class="a-clean" href="#" target="_blank" rel="noopener">Details (coming soon) →</a></p>
+        </article>
+        <article class="card">
+          <h3>Vietcombank Virtualization (FPT IS)</h3>
+          <p class="muted">Enterprise virtualization project — details to be added.</p>
+          <p><a class="a-clean" href="#" target="_blank" rel="noopener">Case study (coming soon) →</a></p>
+        </article>
+        <article class="card">
+          <h3>TPBank OpenShift (FPT IS)</h3>
+          <p class="muted">Red Hat OpenShift deployment and enablement — details to be added.</p>
+          <p><a class="a-clean" href="#" target="_blank" rel="noopener">Write‑up (coming soon) →</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container grid cols-2">
+      <div>
+        <h2>Contact</h2>
+        <p>My inbox is open. Say hi — I love meeting new people.</p>
+        <p><a class="btn" href="mailto:loi.hoangthanh.24@gmail.com">Email me</a></p>
+        <p class="muted">Prefer socials? Link them here: <a class="a-clean" href="#">LinkedIn</a> · <a class="a-clean" href="#">Twitter/X</a> · <a class="a-clean" href="#">GitHub</a></p>
+      </div>
+      <div class="card">
+        <h3>Site details</h3>
+        <ul>
+          <li>Single file: <code>index.html</code></li>
+          <li>Responsive, accessible, dark/light theme</li>
+          <li>No build tools needed</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <small>© <span id="year"></span> Thanh-Loi Hoang. Built with ♥ and hosted on <a class="a-clean" href="https://pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a>.</small>
+    </div>
+  </footer>
+</body>
+</html>
