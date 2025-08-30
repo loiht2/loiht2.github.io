@@ -103,7 +103,7 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
 /* Blog posts */
 .post{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--card);margin-bottom:12px}
 /* Marquee gallery (About page) */
-.full-bleed{width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw)}
+.full-bleed{width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); overflow-x:hidden}
 .marquee{--gap:16px; --speed:40s; --img-h:180px; overflow:hidden; padding:8px 0; mask-image:linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)}
 .marquee__track{display:flex; align-items:center; gap:var(--gap); width:max-content; animation:marquee var(--speed) linear infinite; will-change:transform}
 .marquee:hover .marquee__track{animation-play-state:paused}
@@ -112,6 +112,10 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
 .marquee figcaption{font-size:13px; color:var(--muted); text-align:center}
 @keyframes marquee{from{transform:translateX(0)} to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion: reduce){.marquee__track{animation:none}}
+/* About page photo strip sizing/speed */
+.photos-marquee{--img-h:360px; --speed:50s}
+@media (max-width:900px){.photos-marquee{--img-h:260px}}
+@media (max-width:640px){.photos-marquee{--img-h:180px; --speed:60s}}
 /* --- Renovation additions --- */
 /* subtle hero glow background */
 .hero{
