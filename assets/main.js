@@ -24,9 +24,8 @@ window.toggleMenu = function(){
   var m = document.querySelector('.menu');
   var b = document.querySelector('.hamburger');
   if(!m) return;
-  var isOpen = m.style.display === 'flex';
-  m.style.display = isOpen ? 'none' : 'flex';
-  if(b){ b.setAttribute('aria-expanded', String(!isOpen)); }
+  var isOpen = m.classList.toggle('is-open');
+  if(b){ b.setAttribute('aria-expanded', String(isOpen)); }
 };
 
 // Footer year
@@ -56,6 +55,25 @@ window.addEventListener('DOMContentLoaded', function(){
   // Sync theme button state
   var tbtn = document.querySelector('.toggle');
   if(tbtn){ tbtn.setAttribute('aria-pressed', String(!document.documentElement.classList.contains('light'))); }
+  
+  // Close mobile menu on nav link click
+  try{
+    var menu = document.querySelector('.menu');
+    var hamb = document.querySelector('.hamburger');
+    if(menu){
+      menu.addEventListener('click', function(e){
+        var a = e.target.closest('a[href]');
+        if(!a) return;
+        if(window.innerWidth <= 640){
+          menu.classList.remove('is-open');
+          if(hamb){ hamb.setAttribute('aria-expanded','false'); }
+        }
+      });
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 640){ menu.classList.remove('is-open'); if(hamb){ hamb.setAttribute('aria-expanded','false'); } }
+      });
+    }
+  }catch(e){}
   
   // Typewriter effect for role text in hero
   try{

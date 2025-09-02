@@ -23,6 +23,8 @@ body{
   margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   background:var(--bg); color:var(--txt); line-height:1.6;
 }
+/* Prevent horizontal overflow and blank right gutter on zoom */
+html, body{max-width:100%; overflow-x:hidden}
 .container{max-width:1100px; margin:auto; padding:0 20px}
 /* Navbar */
 .nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:color-mix(in srgb, var(--bg) 80%, transparent); border-bottom:1px solid var(--border)}
@@ -50,7 +52,20 @@ section:first-of-type{border-top:none}
 .grid.cols-3{grid-template-columns:repeat(3,1fr)}
 .grid.cols-2{grid-template-columns:repeat(2,1fr)}
 @media (max-width:900px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}; .menu{display:none} .hamburger{display:block}}
+@media (max-width:640px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+/* Collapse top nav into hamburger on tablets/phones */
+@media (max-width:900px){ .menu{display:none} .hamburger{display:block} }
+/* Mobile nav layout */
+@media (max-width:900px){
+  .nav .menu.is-open{
+    display:flex; flex-direction:column; align-items:flex-start;
+    position:absolute; top:64px; left:0; right:0;
+    background:var(--bg); border-bottom:1px solid var(--border);
+    padding:12px 20px 16px; gap:10px
+  }
+  .nav .menu.is-open a{margin:0}
+  .hamburger{z-index:10}
+}
 .card{padding:18px; border:1px solid var(--border); border-radius:16px; background:var(--card)}
 .card h3{margin:6px 0 8px}
 .muted{color:var(--muted)}
@@ -82,6 +97,13 @@ section:first-of-type{border-top:none}
   margin:0;
   width:var(--size);
 }
+/* Responsive avatar sizing in hero */
+.hero .avatar-wrap{ --size: clamp(96px, 35vw, 256px); }
+@media (max-width:640px){
+  .hero{padding:56px 0 32px}
+  .cta{flex-direction:column}
+  .btn{width:100%; max-width:320px}
+}
 /* Callout */
 .callout{position:relative; overflow:hidden; padding:24px; border-radius:18px; border:1px dashed var(--border)}
 .callout::after{content:""; position:absolute; inset:-30% -30% auto auto; width:220px; height:220px; background:radial-gradient(circle at center, color-mix(in srgb, var(--brand) 35%, transparent), transparent 70%)}
@@ -103,7 +125,16 @@ code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Libera
 /* Blog posts */
 .post{padding:16px;border:1px solid var(--border);border-radius:12px;background:var(--card);margin-bottom:12px}
 /* Marquee gallery (About page) */
-.full-bleed{width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw); overflow-x:hidden}
+.full-bleed{
+  /* robust full-bleed with dynamic viewport fallback */
+  width:100vw; margin-left:calc(50% - 50vw); margin-right:calc(50% - 50vw);
+  width:100svw; margin-left:calc(50% - 50svw); margin-right:calc(50% - 50svw);
+  overflow-x:clip;
+}
+@media (max-width:640px){
+  /* avoid layout shifts on small screens and zoom */
+  .full-bleed{width:100%; margin-left:0; margin-right:0}
+}
 .marquee{--gap:16px; --speed:40s; --img-h:180px; overflow:hidden; padding:8px 0; mask-image:linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%)}
 .marquee__track{display:flex; align-items:center; gap:var(--gap); width:max-content; animation:marquee var(--speed) linear infinite; will-change:transform}
 .marquee:hover .marquee__track{animation-play-state:paused}
