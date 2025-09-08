@@ -74,6 +74,32 @@ window.addEventListener('DOMContentLoaded', function(){
       });
     }
   }catch(e){}
+
+  // Social dropdown handling (generic for any .dropdown)
+  try{
+    document.addEventListener('click', function(e){
+      var btn = e.target.closest('.dropdown .dropbtn');
+      var anyOpen = document.querySelectorAll('.dropdown.is-open');
+      if(btn){
+        var dd = btn.closest('.dropdown');
+        var isOpen = dd.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', String(isOpen));
+        // close others
+        anyOpen.forEach(function(el){ if(el !== dd) el.classList.remove('is-open'); });
+        return;
+      }
+      // click outside closes
+      if(!e.target.closest('.dropdown')){
+        anyOpen.forEach(function(el){ el.classList.remove('is-open'); var b = el.querySelector('.dropbtn'); if(b) b.setAttribute('aria-expanded','false'); });
+      }
+    });
+    // Escape key closes any open dropdown
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape'){
+        document.querySelectorAll('.dropdown.is-open').forEach(function(el){ el.classList.remove('is-open'); var b = el.querySelector('.dropbtn'); if(b) b.setAttribute('aria-expanded','false'); });
+      }
+    });
+  }catch(e){}
   
   // Typewriter effect for role text in hero
   try{

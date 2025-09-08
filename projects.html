@@ -3,12 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — Thanh-Loi Hoang</title>
-  <meta name="description" content="CV of Thanh-Loi Hoang — Cloud‑Native, Kubernetes, MLOps." />
-  <link rel="canonical" href="https://loiht2.github.io/cv.html" />
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://loiht2.github.io/rss.xml" />
-  <meta property="og:title" content="CV — Thanh-Loi Hoang" />
-  <meta property="og:description" content="Cloud‑Native, Kubernetes, MLOps." />
+  <title>Projects — Thanh-Loi Hoang</title>
+  <meta name="description" content="Selected projects by Thanh-Loi Hoang." />
+  <link rel="canonical" href="https://loiht2.github.io/projects.html" />
+  <meta property="og:title" content="Projects — Thanh-Loi Hoang" />
+  <meta property="og:description" content="Selected projects and highlights." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light dark" />
@@ -24,8 +23,8 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="blog.html">Writing</a>
-        <a href="projects.html">Projects</a>
-        <a href="cv.html" aria-current="page">CV</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="cv.html">CV</a>
         <div class="dropdown">
           <button class="dropbtn" aria-haspopup="menu" aria-expanded="false">
             Contact
@@ -49,61 +48,45 @@
         <a class="pill a-clean" href="https://github.com/loiht2" target="_blank" rel="noopener">GitHub</a>
         <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">🌓</button>
       </div>
+      <button class="hamburger" onclick="toggleMenu()" aria-controls="menu" aria-expanded="false">Menu</button>
     </div>
   </nav>
 
   <header class="container">
-    <h1>Curriculum Vitae</h1>
-    <p class="muted">Cloud‑Native • Kubernetes • MLOps • Python • Go</p>
+    <h1>Projects</h1>
+    <p class="muted">Selected work and experiments.</p>
   </header>
 
-  <div class="container section">
-    <div class="grid cols-2">
-      <div><strong>Name</strong></div>
-      <div>Thanh‑Loi Hoang</div>
-      <div><strong>Email</strong></div>
-      <div><a class="a-clean" href="mailto:loi.hoangthanh.24@gmail.com">loi.hoangthanh.24@gmail.com</a></div>
-      <div><strong>Location</strong></div>
-      <div>Seoul, KR (Soongsil University)</div>
-    </div>
-  </div>
+  <main>
+    <section>
+      <div class="container">
+        <div class="grid cols-3">
+          <article class="card">
+            <div class="pill">Featured</div>
+            <h3>MLOps Platforms (DCNLab)</h3>
+            <p class="muted">Exploring and implementing end‑to‑end MLOps on Kubernetes.</p>
+            <ul class="muted">
+              <li>Surveyed mainstream MLOps platforms → chose Kubeflow</li>
+              <li>Evaluated AI/ML workload schedulers → Kueue, Volcano</li>
+            </ul>
+            <p><a class="a-clean" href="#" target="_blank" rel="noopener">Details (coming soon) →</a></p>
+          </article>
+          <article class="card">
+            <h3>Vietcombank Virtualization (FPT IS)</h3>
+            <p class="muted">Enterprise virtualization project — details to be added.</p>
+            <p><a class="a-clean" href="#" target="_blank" rel="noopener">Case study (coming soon) →</a></p>
+          </article>
+          <article class="card">
+            <h3>TPBank OpenShift (FPT IS)</h3>
+            <p class="muted">Red Hat OpenShift deployment and enablement — details to be added.</p>
+            <p><a class="a-clean" href="#" target="_blank" rel="noopener">Write‑up (coming soon) →</a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  <div class="container section">
-    <h2>Skills</h2>
-    <div class="card">
-      Kubernetes, Docker, Python, Go, Bash Script, C/C++, JavaScript
-    </div>
-  </div>
-
-  <div class="container section">
-    <h2>Projects</h2>
-    <div class="card" style="margin-bottom:12px">
-      <div class="pill">Featured</div>
-      <h3 style="margin:6px 0">MLOps Platforms (DCNLab)</h3>
-      <ul>
-        <li>Surveyed mainstream MLOps platforms → selected Kubeflow</li>
-        <li>Evaluated schedulers for AI/ML workloads → Kueue, Volcano</li>
-        <li>Implementation details and outcomes: coming soon</li>
-      </ul>
-    </div>
-    <div class="card" style="margin-bottom:12px">
-      <h3 style="margin:6px 0">Vietcombank Virtualization (FPT IS)</h3>
-      <p>Enterprise virtualization program. Details to be added.</p>
-    </div>
-    <div class="card">
-      <h3 style="margin:6px 0">TPBank OpenShift (FPT IS)</h3>
-      <p>Deployment and enablement on Red Hat OpenShift. Details to be added.</p>
-    </div>
-  </div>
-
-  <div class="container section">
-    <h2>Education</h2>
-    <div class="card">
-      Master’s student — Soongsil University
-    </div>
-  </div>
-
-  <footer class="container" style="padding:40px 0 60px;color:var(--muted);text-align:center">
+  <footer class="container" style="padding:0 0 60px;color:var(--muted);text-align:center">
     <small>© <span id="year"></span> Thanh-Loi Hoang.</small>
   </footer>
 </body>
