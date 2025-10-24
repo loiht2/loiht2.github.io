@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Thanh-Loi Hoang — Writing</title>
+    <link>https://loiht2.github.io/</link>
+    <description>Notes on Cloud, Kubernetes, and MLOps.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Hello, world</title>
+      <link>https://loiht2.github.io/posts/hello-world</link>
+      <guid>https://loiht2.github.io/posts/hello-world</guid>
+      <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate>
+      <description>An introduction post — placeholder.</description>
+    </item>
+  </channel>
+</rss>
