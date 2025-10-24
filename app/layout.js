@@ -12,11 +12,11 @@ export const metadata = {
     template: "%s — Thanh-Loi Hoang",
   },
   description:
-    "No pain no gain. Master's student at Soongsil University researching Cloud Computing, Cloud‑Native Systems, and ML Platforms on Cloud.",
+    "Cloud-native platform engineer Thanh-Loi Hoang shares projects, writing, and research on Kubernetes, MLOps, and dependable infrastructure.",
   openGraph: {
     title: "Thanh-Loi Hoang — Personal Site",
     description:
-      "No pain no gain. Master's student at Soongsil University researching Cloud Computing, Cloud‑Native Systems, and ML Platforms on Cloud.",
+      "Cloud-native platform engineer Thanh-Loi Hoang shares projects, writing, and research on Kubernetes, MLOps, and dependable infrastructure.",
     type: "website",
     url: "https://loiht2.github.io/",
   },

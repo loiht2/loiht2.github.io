@@ -14,11 +14,6 @@ const NAV_LINKS = [
 
 const CONTACT_LINKS = [
   {
-    href: "https://github.com/loiht2",
-    label: "GitHub",
-    Icon: GitHubIcon,
-  },
-  {
     href: "https://www.linkedin.com/in/thanh-loi-hoang/",
     label: "LinkedIn",
     Icon: LinkedInIcon,
@@ -110,44 +105,6 @@ export default function Header() {
               {label}
             </Link>
           ))}
-          <div
-            className={`dropdown${dropdownOpen ? " is-open" : ""}`}
-            ref={dropdownRef}
-          >
-            <button
-              type="button"
-              className="dropbtn"
-              aria-haspopup="menu"
-              aria-expanded={dropdownOpen ? "true" : "false"}
-              onClick={() => setDropdownOpen((open) => !open)}
-            >
-              Contact <span className="caret" aria-hidden="true">▾</span>
-            </button>
-            <div className="dropdown-menu" role="menu">
-              {CONTACT_LINKS.map(({ href, label, Icon }) => (
-                <a
-                  key={href}
-                  className="menu-item"
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  role="menuitem"
-                  onClick={() => setDropdownOpen(false)}
-                >
-                  <Icon />
-                  <span>{label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-          <a
-            className="pill"
-            href="https://github.com/loiht2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub
-          </a>
           <button
             type="button"
             className="toggle"
@@ -181,14 +138,7 @@ export default function Header() {
 }
 
 function GitHubIcon() {
-  return (
-    <svg className="menu-icon" viewBox="0 0 16 16" aria-hidden="true">
-      <path
-        fill="currentColor"
-        d="M8 .2a8 8 0 0 0-2.53 15.6c.4.07.55-.17.55-.38v-1.34c-2.25.49-2.73-1.08-2.73-1.08-.36-.91-.89-1.15-.89-1.15-.73-.5.05-.49.05-.49.8.06 1.23.83 1.23.83.71 1.22 1.86.86 2.31.66.07-.52.28-.87.5-1.07-1.8-.2-3.7-.9-3.7-4.03 0-.89.32-1.62.84-2.2-.08-.21-.37-1.06.08-2.2 0 0 .7-.22 2.3.84a7.9 7.9 0 0 1 4.18 0c1.6-1.06 2.3-.84 2.3-.84.45 1.14.16 1.99.08 2.2.52.58.84 1.31.84 2.2 0 3.14-1.9 3.83-3.72 4.03.29.25.54.74.54 1.5v2.22c0 .21.14.46.55.38A8 8 0 0 0 8 .2Z"
-      />
-    </svg>
-  );
+  return null;
 }
 
 function LinkedInIcon() {
@@ -207,7 +157,7 @@ function XIcon() {
     <svg className="menu-icon" viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="currentColor"
-        d="M3 3h4.6l5 6.9L17 3h4l-6.6 9.2L21 21h-4.6l-5.3-7.4L7 21H3l7.1-10L3 3Z"
+        d="M4 3h4.5l3.18 4.62L15.47 3H20l-6.35 7.44L20.5 21H16l-3.54-5.18L8.58 21H4.05l6.62-7.76z"
       />
     </svg>
   );
