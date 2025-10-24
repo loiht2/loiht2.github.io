@@ -308,40 +308,48 @@ section::before {
 }
 
 .hero {
-  padding: 88px 0 56px;
+  padding: 96px 0 64px;
   text-align: center;
-  --h1: color-mix(in srgb, var(--brand) 12%, transparent);
-  --h2: color-mix(in srgb, var(--brand-2) 10%, transparent);
   position: relative;
   isolation: isolate;
-  overflow: hidden;
-  background:
-    radial-gradient(1200px 420px at 15% -10%, var(--h1), transparent 60%),
-    radial-gradient(1100px 420px at 85% 0%, var(--h2), transparent 60%);
+  overflow: visible;
 }
 .hero::before,
 .hero::after {
   content: "";
   position: absolute;
-  width: 480px;
-  height: 480px;
+  inset: auto;
+  width: clamp(340px, 60vw, 720px);
+  height: clamp(340px, 60vw, 720px);
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.35;
   pointer-events: none;
-  animation: heroGlow 18s linear infinite;
+  filter: blur(120px);
+  opacity: 0.55;
+  mix-blend-mode: lighten;
   z-index: -1;
+  animation: heroGlow 22s linear infinite;
 }
 .hero::before {
-  top: -240px;
-  left: -120px;
-  background: color-mix(in srgb, var(--brand) 60%, transparent);
+  top: -28%;
+  left: 38%;
+  transform: translate(-40%, 0);
+  background: radial-gradient(
+    circle at 40% 35%,
+    color-mix(in srgb, var(--brand) 55%, transparent) 0%,
+    transparent 68%
+  );
 }
 .hero::after {
-  bottom: -260px;
-  right: -160px;
-  background: color-mix(in srgb, var(--brand-2) 60%, transparent);
+  bottom: -32%;
+  right: 34%;
+  transform: translate(40%, 0);
+  background: radial-gradient(
+    circle at 60% 60%,
+    color-mix(in srgb, var(--brand-2) 65%, transparent) 0%,
+    transparent 70%
+  );
   animation-direction: reverse;
+  opacity: 0.45;
 }
 
 .hero-compact {
@@ -379,23 +387,65 @@ h1 {
 }
 
 .btn {
-  padding: 12px 18px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--brand) 20%, transparent),
-    color-mix(in srgb, var(--brand-2) 20%, transparent)
-  );
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--brand) 28%, transparent);
+  background:
+    linear-gradient(
+      140deg,
+      color-mix(in srgb, var(--brand) 36%, transparent) 0%,
+      color-mix(in srgb, var(--brand-2) 32%, transparent) 100%
+    ),
+    color-mix(in srgb, var(--bg) 65%, transparent 35%);
   color: var(--txt);
   font-weight: 600;
+  letter-spacing: 0.02em;
   text-decoration: none;
-  position: relative;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform: translateY(0);
+  box-shadow: 0 18px 40px -20px color-mix(in srgb, var(--brand) 55%, transparent);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    120% 120% at 20% 20%,
+    color-mix(in srgb, var(--brand) 28%, transparent) 0%,
+    transparent 70%
+  );
+  opacity: 0.45;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 .btn.secondary {
-  background: transparent;
+  background: color-mix(in srgb, var(--bg-elev) 78%, transparent 22%);
+  border-color: color-mix(in srgb, var(--brand) 22%, transparent);
+  color: color-mix(in srgb, var(--brand) 82%, #ffffff 18%);
+  box-shadow: 0 12px 28px -24px color-mix(in srgb, var(--brand) 45%, transparent);
+}
+.btn.secondary::before {
+  opacity: 0.25;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 52px -18px color-mix(in srgb, var(--brand) 65%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 40%, transparent);
+}
+.btn.secondary:hover {
+  background: color-mix(in srgb, var(--bg-elev) 86%, transparent 14%);
+  color: color-mix(in srgb, var(--brand-2) 85%, #ffffff 15%);
+  box-shadow: 0 20px 44px -26px color-mix(in srgb, var(--brand-2) 55%, transparent);
 }
 .btn::after {
   content: "";
@@ -411,12 +461,51 @@ h1 {
   transition: transform 0.6s ease;
   pointer-events: none;
 }
-.btn:hover {
-  transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 18px 30px -18px color-mix(in srgb, var(--brand) 55%, transparent);
+.btn.secondary::after {
+  opacity: 0.35;
 }
 .btn:hover::after {
   transform: translate3d(30%, 0, 0) rotate(8deg);
+}
+.light .btn {
+  border-color: color-mix(in srgb, var(--brand) 35%, transparent);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand) 45%, #ffffff 55%) 0%,
+      color-mix(in srgb, var(--brand-2) 40%, #ffffff 60%) 100%
+    ),
+    #ffffff;
+  box-shadow: 0 18px 42px -24px
+    color-mix(in srgb, var(--brand) 45%, transparent 55%);
+  color: color-mix(in srgb, var(--txt) 92%, #000000 8%);
+}
+.light .btn::before {
+  background: radial-gradient(
+    120% 120% at 15% 20%,
+    color-mix(in srgb, var(--brand) 38%, transparent) 0%,
+    transparent 70%
+  );
+  opacity: 0.35;
+}
+.light .btn.secondary {
+  background: color-mix(in srgb, #ffffff 94%, var(--brand) 6%);
+  border-color: color-mix(in srgb, var(--brand) 30%, transparent);
+  color: color-mix(in srgb, var(--brand) 78%, #0f172a 22%);
+  box-shadow: 0 16px 36px -26px
+    color-mix(in srgb, var(--brand-2) 45%, transparent 55%);
+}
+.light .btn.secondary::before {
+  opacity: 0.2;
+}
+.light .btn.secondary:hover {
+  background: color-mix(in srgb, #ffffff 88%, var(--brand-2) 12%);
+  color: color-mix(in srgb, var(--brand-2) 80%, #0f172a 20%);
+}
+.light .btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 46px -18px color-mix(in srgb, var(--brand) 55%, transparent);
+  border-color: color-mix(in srgb, var(--brand) 45%, transparent);
 }
 .btn:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--brand) 40%, transparent);
@@ -458,6 +547,13 @@ section:nth-of-type(2n)::before {
 }
 section:hover::before {
   opacity: calc(0.32 + var(--scroll-progress) * 0.25);
+}
+
+.plain-section {
+  border-top: none;
+}
+.plain-section::before {
+  content: none;
 }
 
 .grid {
@@ -514,43 +610,43 @@ section:hover::before {
 
 .card {
   position: relative;
-  padding: 18px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: var(--card);
-  transition: transform 0.18s ease, background-color 0.18s ease,
-    border-color 0.18s ease;
+  padding: 22px;
+  border: 1px solid color-mix(in srgb, var(--brand) 15%, var(--bg) 85%);
+  border-radius: 28px;
+  background: color-mix(in srgb, var(--bg-elev) 82%, transparent 18%);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 30px 90px -40px
+    color-mix(in srgb, var(--brand) 28%, transparent 72%);
+  transition: transform 0.22s ease, border-color 0.22s ease,
+    box-shadow 0.22s ease, background-color 0.22s ease;
 }
 .card::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 12% 8% -26% 8%;
   border-radius: inherit;
-  border: 1px solid transparent;
-  background: linear-gradient(
-      140deg,
-      color-mix(in srgb, var(--brand) 14%, transparent),
-      color-mix(in srgb, var(--brand-2) 22%, transparent)
-    )
-    border-box;
-  -webkit-mask: linear-gradient(#000 0 0) padding-box,
-    linear-gradient(#000 0 0) border-box;
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) padding-box,
-    linear-gradient(#000 0 0) border-box;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    circle at 50% 0%,
+    color-mix(in srgb, var(--brand) 35%, transparent 65%) 0%,
+    transparent 70%
+  );
+  filter: blur(70px);
+  opacity: 0.55;
+  transition: opacity 0.35s ease;
   pointer-events: none;
+  z-index: -1;
 }
 .card:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--brand) 35%, var(--border));
-  background: color-mix(in srgb, var(--card) 90%, var(--brand) 10%);
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--brand) 28%, var(--bg) 72%);
+  background: color-mix(in srgb, var(--bg-elev) 78%, transparent 22%);
+  box-shadow: 0 40px 110px -44px
+    color-mix(in srgb, var(--brand-2) 40%, transparent 60%);
 }
 .card:hover::after {
-  opacity: 1;
+  opacity: 0.78;
 }
+
 .card h3 {
   margin: 6px 0 8px;
 }
@@ -925,9 +1021,11 @@ h2::after {
 .marquee img {
   height: var(--img-h);
   width: auto;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--card);
+  border-radius: 22px;
+  border: none;
+  background: transparent;
+  box-shadow: 0 32px 80px -52px
+    color-mix(in srgb, var(--brand) 40%, transparent 60%);
   object-fit: cover;
 }
 .marquee figcaption {
@@ -1073,4 +1171,128 @@ h2::after {
     transform: scale(0.96) translate3d(-6px, 14px, 0);
     opacity: 0.28;
   }
+}
+
+
+.contact-wrapper {
+  display: grid;
+  gap: 28px;
+}
+.contact-header {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+@media (min-width: 640px) {
+  .contact-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+  }
+}
+.contact-header > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+/* availability pill removed */
+.contact-panel {
+  display: contents;
+}
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 480px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  border: 1px solid color-mix(in srgb, var(--brand) 28%, transparent);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg) 90%, transparent 10%) 0%,
+    color-mix(in srgb, var(--bg-elev) 86%, transparent 14%) 100%
+  );
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease,
+    background 0.24s ease;
+}
+.contact-item:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--brand) 50%, transparent);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg-elev) 92%, transparent 8%) 0%,
+    color-mix(in srgb, var(--bg) 90%, transparent 10%) 100%
+  );
+  box-shadow: 0 34px 60px -26px color-mix(in srgb, var(--brand) 62%, transparent);
+}
+.light .contact-item {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, #ffffff 96%, var(--brand) 4%) 0%,
+    color-mix(in srgb, #ffffff 92%, var(--brand-2) 8%) 100%
+  );
+  border-color: color-mix(in srgb, var(--brand) 36%, transparent);
+  box-shadow: 0 28px 58px -30px color-mix(in srgb, var(--brand-2) 44%, transparent);
+}
+.contact-item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  background: linear-gradient(
+    140deg,
+    color-mix(in srgb, var(--brand) 42%, transparent),
+    color-mix(in srgb, var(--brand-2) 38%, transparent)
+  );
+  color: #0f172a;
+  box-shadow: 0 16px 30px -22px color-mix(in srgb, var(--brand) 58%, transparent);
+}
+.contact-item-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.contact-item-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.contact-item-label {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--muted) 82%, #ffffff 18%);
+}
+.contact-item-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--txt) 92%, #ffffff 8%);
+}
+.contact-item-action {
+  margin-left: auto;
+  font-size: 20px;
+  color: color-mix(in srgb, var(--brand-2) 65%, #ffffff 35%);
+  transition: transform 0.24s ease;
+}
+.contact-item:hover .contact-item-action {
+  transform: translateX(4px);
+  color: color-mix(in srgb, var(--brand-2) 80%, #ffffff 20%);
+}
+.light .contact-item-icon {
+  color: #0f172a;
 }

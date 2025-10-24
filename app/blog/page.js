@@ -4,7 +4,7 @@ import RevealOnScroll from "@/components/reveal-on-scroll";
 export const metadata = {
   title: "Writing",
   description:
-    "Writing by Thanh-Loi Hoang — notes on Cloud, Kubernetes, and MLOps.",
+    "Articles and field notes from Thanh-Loi Hoang on cloud platforms, Kubernetes operations, and MLOps strategy.",
 };
 
 export default function BlogPage() {
@@ -12,12 +12,15 @@ export default function BlogPage() {
     <>
       <RevealOnScroll as="header" className="container hero-compact" variant="fade-in">
         <h1>Writing</h1>
-        <p className="muted">Notes and write‑ups. More posts coming soon.</p>
+        <p className="muted">
+          Essays, debriefs, and practical observations from building cloud and
+          ML platforms.
+        </p>
       </RevealOnScroll>
 
       <RevealOnScroll
         as="section"
-        className="container"
+        className="container plain-section"
         style={{ padding: "24px 0 60px" }}
         variant="fade-up"
       >
@@ -28,11 +31,11 @@ export default function BlogPage() {
             </Link>
           </h2>
           <p className="muted" style={{ margin: "0 0 12px" }}>
-            An introduction post — placeholder.
+            A quick hello while I gather longer-form case studies and guides.
           </p>
           <p>
-            This is where I’ll write about Cloud, Kubernetes, and MLOps. Stay
-            tuned!
+            Expect deep dives into Kubernetes, scheduling AI/ML workloads, and
+            the human systems required to keep platforms healthy. Stay tuned!
           </p>
         </RevealOnScroll>
       </RevealOnScroll>

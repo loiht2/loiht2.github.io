@@ -5,7 +5,8 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <small>
-          © {year} Thanh-Loi Hoang. Built with Next.js.
+          © {year} Thanh-Loi Hoang. Crafted with Next.js and an obsession for
+          dependable systems.
         </small>
       </div>
     </footer>
