@@ -1,40 +1,34 @@
-# Personal Website — loiht2.github.io
+# Thanh-Loi Hoang — Personal Site (Next.js)
 
-A fast, accessible, no-build static site with light/dark theme, responsive layout, and a simple structure you can extend.
+Modern rewrite of the personal site using Next.js App Router. The project compiles to a static bundle (`out/`) that can be deployed on GitHub Pages or any static host.
 
-## Structure
-- `index.html`: Home with hero, projects, contact anchors
-- `about.html`: Bio and highlights
-- `blog.html`: Placeholder blog index
-- `cv.html`: Simple CV page
-- `assets/styles.css`: Theme, layout, components
-- `assets/main.js`: Theme toggle, mobile nav, active nav link, footer year
-- `404.html`: GitHub Pages fallback for unknown paths
-- `robots.txt` and `sitemap.xml`: Basic SEO
+## Tech Stack
+- [Next.js 15](https://nextjs.org) with the App Router
+- React 19 server + client components
+- Static export (`next.config.mjs` uses `output: "export"`) with unoptimised images for GitHub Pages compatibility
 
-## Customize
-- Text and metadata: update titles and descriptions in each page `<head>`
-- Avatar: replace `https://github.com/loiht2.png` with your image URL or local asset
-- Projects: edit the “Projects” section in `index.html` and details in `about.html`/`cv.html`
-- Social links: update GitHub/LinkedIn/etc. links in nav and footer
-- Colors: tweak CSS variables at the top of `assets/styles.css`
+## Structure Highlights
+- `app/` — route segments (`/`, `/blog`, `/projects`, `/cv`, `/posts/hello-world`)
+- `components/` — shared layout pieces (header, footer, theme logic, typewriter role)
+- `public/` — static assets, RSS feed, sitemap, manifest
+- `legacy-site/` — snapshot of the original hand-coded HTML site kept for reference
 
-## Local Preview
-Open `index.html` directly, or serve the folder:
+## Local Development
+```bash
+npm install
+npm run dev
+```
 
-- Python: `python3 -m http.server -d . 8080`
-- Node (if installed): `npx serve .`
+Visit `http://localhost:3000` to browse the site. Edits to files in `app/` hot-reload automatically.
 
-Then visit `http://localhost:8080/`.
+## Build & Export
+```bash
+npm run build
+```
 
-## Deploy (GitHub Pages)
-1. Initialize a Git repo in this folder and push to `github.com/loiht2/loiht2.github.io`
-2. Ensure Pages is enabled in the repository settings (root branch, no build)
-3. Changes to `main` are live at `https://loiht2.github.io/`
+Because the configuration uses `output: "export"`, the build step places the static site in `./out`. You can preview it locally with any static file server, for example:
+```bash
+npx serve@latest out
+```
 
-## Notes
-- Nav highlights the current page via `aria-current="page"`
-- Theme preference is saved to `localStorage`
-- Mobile menu uses a simple toggle; consider a more robust layout if your nav grows
-
-MIT-like usage: feel free to copy and adapt.
+Deploy the `out` directory to GitHub Pages (repository name `loiht2.github.io`) or another static host.
