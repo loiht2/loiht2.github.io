@@ -1,9 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function AmbientBackground() {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
+    // Detect mobile/low-performance devices
+    const checkMobile = () => {
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      const isSmallScreen = window.innerWidth < 768;
+      const isLowMemory = navigator.deviceMemory && navigator.deviceMemory < 4;
+      return isTouchDevice || isSmallScreen || isLowMemory;
+    };
+
+    setIsMobile(checkMobile());
+
     const root = document.documentElement;
     if (!root) return undefined;
 
@@ -74,22 +86,29 @@ export default function AmbientBackground() {
     setPointer(0.5, 0.5, true);
     updateScrollProgress();
 
+    // Skip pointer tracking on mobile for performance
+    const mobile = checkMobile();
+    
     const handlePointerMove = (event) => {
-      if (reduceMotion) return;
+      if (reduceMotion || mobile) return;
       const x = event.clientX / window.innerWidth;
       const y = event.clientY / window.innerHeight;
       setPointer(x, y);
     };
 
     const handlePointerLeave = () => {
-      if (reduceMotion) return;
+      if (reduceMotion || mobile) return;
       setPointer(0.5, 0.5);
     };
 
-    window.addEventListener("pointermove", handlePointerMove, {
-      passive: true,
-    });
-    window.addEventListener("pointerleave", handlePointerLeave);
+    // Only add pointer listeners on desktop
+    if (!mobile) {
+      window.addEventListener("pointermove", handlePointerMove, {
+        passive: true,
+      });
+      window.addEventListener("pointerleave", handlePointerLeave);
+    }
+    
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     window.addEventListener("resize", updateScrollProgress);
 
@@ -100,8 +119,10 @@ export default function AmbientBackground() {
       if (scrollFrame != null) {
         window.cancelAnimationFrame(scrollFrame);
       }
-      window.removeEventListener("pointermove", handlePointerMove);
-      window.removeEventListener("pointerleave", handlePointerLeave);
+      if (!mobile) {
+        window.removeEventListener("pointermove", handlePointerMove);
+        window.removeEventListener("pointerleave", handlePointerLeave);
+      }
       window.removeEventListener("scroll", updateScrollProgress);
       window.removeEventListener("resize", updateScrollProgress);
       if (motionQuery.removeEventListener) {
@@ -112,14 +133,21 @@ export default function AmbientBackground() {
     };
   }, []);
 
+  // Render simplified version on mobile
+  if (isMobile) {
+    return (
+      <div className="ambient" aria-hidden="true">
+        <div className="ambient__layer ambient__layer--one" />
+      </div>
+    );
+  }
+
   return (
     <div className="ambient" aria-hidden="true">
       <div className="ambient__layer ambient__layer--one" />
       <div className="ambient__layer ambient__layer--two" />
       <div className="ambient__layer ambient__layer--three" />
       <div className="ambient__mesh" />
-      <div className="ambient__particles ambient__particles--near" />
-      <div className="ambient__particles ambient__particles--far" />
     </div>
   );
 }

@@ -436,3 +436,40 @@
     gap: 12px;
   }
 }
+
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  .summaryCard,
+  .timelineContent,
+  .skillCategory,
+  .educationCard,
+  .certCard,
+  .languageItem {
+    backdrop-filter: none;
+  }
+  
+  .timelineContent:hover,
+  .skillCategory:hover,
+  .educationCard:hover,
+  .certCard:hover,
+  .languageItem:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .timelineDot {
+    box-shadow: 0 0 0 3px var(--bg);
+  }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .timelineContent,
+  .skillCategory,
+  .educationCard,
+  .certCard,
+  .languageItem,
+  .skillTags span {
+    transition: none;
+  }
+}
