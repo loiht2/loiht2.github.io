@@ -16,7 +16,7 @@ export default function CVPage() {
         <div className={styles.heroContent}>
           <h1>Thanh-Loi Hoang</h1>
           <p className={styles.tagline}>
-            Cloud-Native Platform Engineer &amp; MLOps Specialist
+            Master's Student &amp; Research Assistant
           </p>
           <div className={styles.contactRow}>
             <Link href="mailto:loi.hoangthanh.24@gmail.com" className={styles.contactItem}>
@@ -52,10 +52,9 @@ export default function CVPage() {
         <h2>About Me</h2>
         <div className={styles.summaryCard}>
           <p>
-            A passionate platform engineer with expertise in building scalable Kubernetes infrastructure, 
-            designing MLOps platforms, and leading cloud modernization initiatives. I thrive at the 
-            intersection of systems thinking, automation, and collaborative leadership—transforming 
-            complex infrastructure challenges into elegant, maintainable solutions.
+            I’m Thanh-Loi Hoang, an MSc student at Soongsil University and Research Assistant focused
+            on cloud-native infrastructure. I experienced with Kubernetes/OpenShift, VMware virtualization,
+            and SDN-integrated OpenStack performance research.
           </p>
         </div>
       </RevealOnScroll>
@@ -72,15 +71,13 @@ export default function CVPage() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <div className={styles.timelineHeader}>
-                <h3>Graduate Student Researcher</h3>
-                <span className={styles.timelineDate}>Mar 2024 — Present</span>
+                <h3>Research Assistant</h3>
+                <span className={styles.timelineDate}>Mar 2025 — Present</span>
               </div>
-              <div className={styles.timelineOrg}>DCN Lab, Soongsil University · Seoul, South Korea</div>
+              <div className={styles.timelineOrg}>Soongsil University · Seoul, South Korea</div>
               <ul>
-                <li>Leading MLOps platform design and deployment using Kubeflow for reproducible ML pipelines</li>
-                <li>Benchmarking GPU scheduling solutions (Kueue vs. Volcano) for research workloads</li>
-                <li>Establishing observability standards, runbooks, and SLOs for ML services</li>
-                <li>Collaborating with research teams to optimize experiment tracking workflows</li>
+                <li>Performed literature surveys and extracted key insights from academic papers to write research publications</li>
+                <li>Design and optimize Kubernetes clusters for deploying and managing AI/ML workloads at scale</li>
               </ul>
             </div>
           </RevealOnScroll>
@@ -89,15 +86,14 @@ export default function CVPage() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <div className={styles.timelineHeader}>
-                <h3>Cloud Infrastructure Engineer</h3>
-                <span className={styles.timelineDate}>Jun 2022 — Feb 2024</span>
+                <h3>System Engineer</h3>
+                <span className={styles.timelineDate}>Jun 2024 — Feb 2025</span>
               </div>
-              <div className={styles.timelineOrg}>FPT Information System · Hanoi, Vietnam</div>
+              <div className={styles.timelineOrg}>FPT Information System Company Limited · Hanoi, Vietnam</div>
               <ul>
-                <li>Architected Red Hat OpenShift platform for TPBank, accelerating deployment pipelines</li>
-                <li>Led VMware virtualization program for Vietcombank, reducing hardware footprint by 40%</li>
-                <li>Implemented CI/CD guardrails and compliance automation for banking environments</li>
-                <li>Delivered technical enablement workshops for on-site engineering teams</li>
+                <li>Deployed virtualization systems using VMware for external organizations, including server and disk setup, and migrating physical/virtual servers to new virtualized infrastructure</li>
+                <li>Gained proficiency in Kubernetes by mastering cluster management commands and understanding OpenShift architecture</li>
+                <li>Deployed OpenShift clusters for banking clients</li>
               </ul>
             </div>
           </RevealOnScroll>
@@ -106,14 +102,28 @@ export default function CVPage() {
             <div className={styles.timelineDot} />
             <div className={styles.timelineContent}>
               <div className={styles.timelineHeader}>
-                <h3>System Administrator Intern</h3>
-                <span className={styles.timelineDate}>Jan 2022 — May 2022</span>
+                <h3>DevOps Engineer Intern</h3>
+                <span className={styles.timelineDate}>Oct 2023 — Dec 2023</span>
               </div>
-              <div className={styles.timelineOrg}>FPT Information System · Hanoi, Vietnam</div>
+              <div className={styles.timelineOrg}>Viettel Networks Corporation · Hanoi, Vietnam</div>
               <ul>
-                <li>Supported enterprise Linux server administration and monitoring</li>
-                <li>Assisted in virtualization deployments and backup automation</li>
-                <li>Developed scripts for operational efficiency improvements</li>
+                <li>Gained hands-on experience with Docker architecture, container lifecycle, and core commands</li>
+                <li>Developed an end-to-end automated system to extract personal Strava activities, ingest them into a database, and render them on a web dashboard; deployed using Docker containers</li>
+              </ul>
+            </div>
+          </RevealOnScroll>
+
+          <RevealOnScroll as="div" className={styles.timelineItem} variant="fade-up" once={false}>
+            <div className={styles.timelineDot} />
+            <div className={styles.timelineContent}>
+              <div className={styles.timelineHeader}>
+                <h3>Student Researcher</h3>
+                <span className={styles.timelineDate}>Oct 2022 — Sep 2023</span>
+              </div>
+              <div className={styles.timelineOrg}>VNU University of Engineering and Technology · Hanoi, Vietnam</div>
+              <ul>
+                <li>Implemented software-defined networking (SDN) on physical infrastructure using personal computers and switches (small-scale testbed)</li>
+                <li>Deployed SDN controllers (OpenDaylight, Tungsten Fabric) into a private OpenStack cloud, and evaluated system-wide and VM-to-VM network performance</li>
               </ul>
             </div>
           </RevealOnScroll>
@@ -139,8 +149,6 @@ export default function CVPage() {
               <span>Kubernetes</span>
               <span>OpenShift</span>
               <span>VMware vSphere</span>
-              <span>AWS</span>
-              <span>GCP</span>
               <span>Docker</span>
               <span>Helm</span>
             </div>
@@ -156,11 +164,9 @@ export default function CVPage() {
             <h3>MLOps &amp; DevOps</h3>
             <div className={styles.skillTags}>
               <span>Kubeflow</span>
-              <span>MLflow</span>
               <span>GitOps</span>
               <span>ArgoCD</span>
               <span>Jenkins</span>
-              <span>Terraform</span>
               <span>Ansible</span>
             </div>
           </RevealOnScroll>
@@ -195,9 +201,7 @@ export default function CVPage() {
             <div className={styles.skillTags}>
               <span>Prometheus</span>
               <span>Grafana</span>
-              <span>ELK Stack</span>
-              <span>Jaeger</span>
-              <span>OpenTelemetry</span>
+              <span>Zabbix</span>
             </div>
           </RevealOnScroll>
         </div>
@@ -210,46 +214,96 @@ export default function CVPage() {
         variant="fade-up"
       >
         <h2>Education</h2>
-        <div className={styles.educationGrid}>
-          <RevealOnScroll as="div" className={styles.educationCard} variant="fade-up" once={false}>
-            <div className={styles.degreeIcon}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-              </svg>
-            </div>
-            <div className={styles.educationDetails}>
-              <h3>Master of Engineering</h3>
-              <div className={styles.school}>Soongsil University</div>
-              <div className={styles.educationMeta}>
-                <span>Seoul, South Korea</span>
-                <span>Mar 2024 — Present</span>
+        <div className={styles.educationList}>
+          <RevealOnScroll as="div" className={styles.eduCard} variant="fade-up" once={false}>
+            <div className={styles.eduHeader}>
+              <div className={styles.eduDegree}>
+                <span className={styles.eduBadge}>MSc</span>
+                <div>
+                  <h3>Information and Telecommunication Engineering</h3>
+                  <div className={styles.eduSchool}>School of Electronic Engineering — Soongsil University</div>
+                </div>
               </div>
-              <p>
-                Research focus: Cloud-native infrastructure, MLOps systems, and distributed computing. 
-                Member of DCN Lab conducting research on scalable ML platforms.
-              </p>
+              <div className={styles.eduPeriod}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Seoul, South Korea
+                <span className={styles.eduDivider}>|</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                2025 — Present
+              </div>
+            </div>
+            <div className={styles.eduBody}>
+              <div className={styles.eduItem}>
+                <span className={styles.eduLabel}>Thesis</span>
+                <span className={styles.eduValue}>In Progress</span>
+              </div>
+              <div className={styles.eduItem}>
+                <span className={styles.eduLabel}>Focus Areas</span>
+                <div className={styles.eduTags}>
+                  <span>Cloud Computing</span>
+                  <span>Cloud-Native Architecture</span>
+                  <span>Containerization Technologies</span>
+                </div>
+              </div>
             </div>
           </RevealOnScroll>
 
-          <RevealOnScroll as="div" className={styles.educationCard} variant="fade-up" once={false}>
-            <div className={styles.degreeIcon}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
-              </svg>
-            </div>
-            <div className={styles.educationDetails}>
-              <h3>Bachelor of Engineering</h3>
-              <div className={styles.school}>Posts and Telecommunications Institute of Technology</div>
-              <div className={styles.educationMeta}>
-                <span>Hanoi, Vietnam</span>
-                <span>2018 — 2022</span>
+          <RevealOnScroll as="div" className={styles.eduCard} variant="fade-up" once={false}>
+            <div className={styles.eduHeader}>
+              <div className={styles.eduDegree}>
+                <span className={styles.eduBadge}>BSc</span>
+                <div>
+                  <h3>Electronics and Communication Engineering Technology</h3>
+                  <div className={styles.eduSchool}>University of Engineering and Technology — Vietnam National University</div>
+                  <span className={styles.eduHonors}>Honors Program</span>
+                </div>
               </div>
-              <p>
-                Major in Information Technology. Foundation in computer science, networking, 
-                and systems programming.
-              </p>
+              <div className={styles.eduPeriod}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Hanoi, Vietnam
+                <span className={styles.eduDivider}>|</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                2020 — 2024
+              </div>
+            </div>
+            <div className={styles.eduBody}>
+              <div className={styles.eduItem}>
+                <span className={styles.eduLabel}>Thesis</span>
+                <span className={styles.eduValue}>
+                  "Enhancing Performance of Cloud Computing Using Tungsten Fabric Controller"
+                  <span className={styles.eduGrade}>9.2/10</span>
+                </span>
+              </div>
+              <div className={styles.eduItem}>
+                <span className={styles.eduLabel}>GPA</span>
+                <span className={styles.eduValue}>
+                  <strong>8.15</strong>/10
+                </span>
+              </div>
+              <div className={styles.eduItem}>
+                <span className={styles.eduLabel}>Focus Areas</span>
+                <div className={styles.eduTags}>
+                  <span>Computer Networks</span>
+                  <span>Operating Systems</span>
+                  <span>Virtualization Technologies</span>
+                </div>
+              </div>
             </div>
           </RevealOnScroll>
         </div>
@@ -269,7 +323,7 @@ export default function CVPage() {
                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
               </svg>
             </div>
-            <span>Certified Kubernetes Administrator (CKA)</span>
+            <span>TOEIC 835</span>
           </RevealOnScroll>
           <RevealOnScroll as="div" className={styles.certCard} variant="fade-up" once={false}>
             <div className={styles.certBadge}>
@@ -277,15 +331,7 @@ export default function CVPage() {
                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
               </svg>
             </div>
-            <span>Red Hat Certified System Administrator (RHCSA)</span>
-          </RevealOnScroll>
-          <RevealOnScroll as="div" className={styles.certCard} variant="fade-up" once={false}>
-            <div className={styles.certBadge}>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-              </svg>
-            </div>
-            <span>VMware Certified Professional (VCP)</span>
+            <span>IELTS 5.5</span>
           </RevealOnScroll>
         </div>
       </RevealOnScroll>
@@ -308,7 +354,7 @@ export default function CVPage() {
           </div>
           <div className={styles.languageItem}>
             <span className={styles.languageName}>Korean</span>
-            <span className={styles.languageLevel}>Intermediate</span>
+            <span className={styles.languageLevel}>Beginner</span>
           </div>
         </div>
       </RevealOnScroll>

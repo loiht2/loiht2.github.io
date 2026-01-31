@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import RevealOnScroll from "@/components/reveal-on-scroll";
 import TypewriterRole from "@/components/typewriter-role";
+import styles from "./home.module.css";
 
 const PHOTOS = [
   {
@@ -113,6 +114,7 @@ const CONTACT_LINKS = [
 export default function Home() {
   return (
     <>
+      {/* Hero Section */}
       <RevealOnScroll as="header" className="hero container" variant="fade-in">
         <div className="avatar-wrap">
           <Image
@@ -126,11 +128,9 @@ export default function Home() {
         </div>
         <div className="kicker">NO PAIN NO GAIN</div>
         <h1>
-          Hi, I’m <TypewriterRole />.
+          Hi, I&apos;m <TypewriterRole />.
         </h1>
-        <p className="sub">
-          Master’s Student at Soongsil University
-        </p>
+        <p className="sub">Master&apos;s Student at Soongsil University</p>
         <div className="cta">
           <Link className="btn" href="/blog">
             Read my blog
@@ -141,34 +141,25 @@ export default function Home() {
         </div>
       </RevealOnScroll>
 
-      <RevealOnScroll
-        as="section"
-        className="plain-section"
-        variant="fade-up"
-      >
+      {/* Bio Section */}
+      <RevealOnScroll as="section" className="plain-section" variant="fade-up">
         <div className="container">
           <RevealOnScroll as="div" variant="fade-right" once={false}>
             <h2>Bio</h2>
             <p>
-              I’m Thanh‑Loi Hoang—an engineer focused on designing,
-              automating, and operating cloud‑native infrastructure that helps
-              machine learning teams move with confidence.
+              Cloud-native &amp; Kubernetes enthusiast, currently a Research
+              Assistant at Soongsil University working on Kubernetes clusters
+              for AI/ML at scale.
             </p>
             <p>
-              My work sits at the intersection of platform reliability,
-              Kubernetes, and pragmatic MLOps. I enjoy turning research into
-              production-ready tooling, documenting the lessons learned, and
-              mentoring teammates along the way.
-            </p>
-            <p>
-              When I’m not shipping code or experiments, you’ll find me
-              contributing to community events, writing about dependable
-              systems, or exploring new cities camera-in-hand.
+              Experienced with OpenShift deployments, VMware virtualization, and
+              SDN-integrated OpenStack performance research.
             </p>
           </RevealOnScroll>
         </div>
       </RevealOnScroll>
 
+      {/* Contact Section - Redesigned */}
       <RevealOnScroll
         as="section"
         className="plain-section"
@@ -176,48 +167,41 @@ export default function Home() {
         id="contact"
       >
         <div className="container">
-          <div className="contact-wrapper">
-            <div className="contact-header">
-              <div>
-                <h2>Get in Touch</h2>
-                <p className="muted">
-                  Have a project in mind or want to collaborate? I&apos;d love to hear from you!
-                </p>
-              </div>
+          <div className={styles.contactSection}>
+            <div className={styles.contactHeader}>
+              <h2>Get in Touch</h2>
+              <p>
+                Have a project in mind or want to collaborate? I&apos;d love to
+                hear from you!
+              </p>
             </div>
-            <div className="contact-panel">
-              <ul className="contact-list">
-                {CONTACT_LINKS.map(({ label, value, href, icon }) => {
-                  const Tag = href ? "a" : "div";
-                  const isExternal = href?.startsWith("http");
-                  const tagProps = href
-                    ? {
-                        href,
-                        target: isExternal ? "_blank" : undefined,
-                        rel: isExternal ? "noopener noreferrer" : undefined,
-                      }
-                    : {};
-                  return (
-                    <li key={label}>
-                      <Tag className="contact-item" {...tagProps}>
-                        <span className="contact-item-icon">{icon}</span>
-                        <span className="contact-item-body">
-                          <span className="contact-item-label">{label}</span>
-                          <span className="contact-item-value">{value}</span>
-                        </span>
-                        <span className="contact-item-action" aria-hidden="true">
-                          →
-                        </span>
-                      </Tag>
-                    </li>
-                  );
-                })}
-              </ul>
+
+            <div className={styles.contactGrid}>
+              {CONTACT_LINKS.map(({ label, value, href, icon }) => {
+                const isExternal = href?.startsWith("http");
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    className={styles.contactCard}
+                    target={isExternal ? "_blank" : undefined}
+                    rel={isExternal ? "noopener noreferrer" : undefined}
+                  >
+                    <span className={styles.contactIcon}>{icon}</span>
+                    <span className={styles.contactInfo}>
+                      <span className={styles.contactLabel}>{label}</span>
+                      <span className={styles.contactValue}>{value}</span>
+                    </span>
+                    <span className={styles.contactArrow}>→</span>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
       </RevealOnScroll>
 
+      {/* Photos Section */}
       <RevealOnScroll
         as="section"
         id="photos"

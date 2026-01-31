@@ -13,8 +13,8 @@ export default function BlogPage() {
       <RevealOnScroll as="header" className="container hero-compact" variant="fade-in">
         <h1>Writing</h1>
         <p className="muted">
-          Essays, debriefs, and practical observations from building cloud and
-          ML platforms.
+          Essays, debriefs, and practical observations from building Cloud and
+          Cloud-Native.
         </p>
       </RevealOnScroll>
 
