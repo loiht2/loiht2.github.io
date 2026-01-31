@@ -16,7 +16,7 @@ export default function CVPage() {
         <div className={styles.heroContent}>
           <h1>Thanh-Loi Hoang</h1>
           <p className={styles.tagline}>
-            Master's Student &amp; Research Assistant
+            Master&apos;s Student &amp; Research Assistant
           </p>
           <div className={styles.contactRow}>
             <Link href="mailto:loi.hoangthanh.24@gmail.com" className={styles.contactItem}>
@@ -286,7 +286,7 @@ export default function CVPage() {
               <div className={styles.eduItem}>
                 <span className={styles.eduLabel}>Thesis</span>
                 <span className={styles.eduValue}>
-                  "Enhancing Performance of Cloud Computing Using Tungsten Fabric Controller"
+                  &quot;Enhancing Performance of Cloud Computing Using Tungsten Fabric Controller&quot;
                   <span className={styles.eduGrade}>9.2/10</span>
                 </span>
               </div>
