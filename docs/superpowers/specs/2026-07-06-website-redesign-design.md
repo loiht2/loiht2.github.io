@@ -66,7 +66,7 @@ Nav: `Home · Research · Projects · Writing · CV` + theme toggle. Footer: con
 
 ## 6. Animation system
 
-Implemented with **Motion** (`motion` package, successor to framer-motion) + CSS where cheaper. Global rules:
+Implemented with **modern CSS** (keyframe entrance choreography, scroll-driven animations via `animation-timeline: view()/scroll()` behind `@supports`, transitions for micro-interactions) plus **next-view-transitions** for page crossfades. No animation runtime library: CSS covers every effect in this design, guarantees content is visible without JS (server HTML never carries `opacity: 0`), and keeps the client bundle minimal. Global rules:
 
 - Entrance: staggered fade+rise (12–16px, spring, ~0.5s) on first load; scroll reveals fire **once** (`whileInView`, `once: true`).
 - Micro-interactions: link underline slide-in; card lift+scale on hover; press states; animated sun/moon morph on theme toggle; subtle magnetic effect on primary CTA only.
@@ -78,7 +78,7 @@ Implemented with **Motion** (`motion` package, successor to framer-motion) + CSS
 
 - **Next.js 16 App Router on Vercel-native build** — drop `output: "export"`; enable `next/image` optimization (remove `images.unoptimized`).
 - **Tailwind CSS v4** for the rebuilt UI (replaces 1,390-line globals.css + modules; design tokens as CSS variables remain the theming backbone).
-- **Motion** for animation; **next-themes** for theming; **MDX via `content-collections`** for writing (typed frontmatter, single source of truth for listing/RSS/sitemap); generated `sitemap.ts`/`rss` route handlers replace hand-maintained XML.
+- **CSS-first animation** (see §6) + **next-view-transitions**; **next-themes** for theming; **MDX via `next-mdx-remote/rsc` + `gray-matter`** for writing (the project is JavaScript — this avoids introducing TypeScript-first tooling; posts remain the single source of truth for listing/RSS/sitemap); generated `app/sitemap.js` / `app/rss.xml/route.js` replace hand-maintained XML.
 - Delete dead code/assets: `app/page.module.css`, starter SVGs, unused header dropdown + `GitHubIcon()`, `avatar-bg.svg`, unused photo, stale README/RUNNING sections (rewrite docs for Next 16 / Node ≥ 20.9 / Vercel).
 - **Environment prerequisite:** build machine needs Node ≥ 20.9 (current machine has 18.19.1 — upgrade via nvm before implementation).
 
