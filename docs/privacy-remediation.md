@@ -17,6 +17,9 @@ Old commit objects may remain in GitHub's caches until support purges them.
 
 ## Owner actions (do these once)
 
+- [ ] Delete the stale remote branch that still points at pre-rewrite history:
+      `git push origin --delete vercel/react-server-components-cve-vu-lu1ajb`
+      (or delete it in the GitHub UI under Branches).
 - [ ] File a GitHub support request at https://support.github.com/contact
       (subject: "Purge cached commits after history rewrite"), message:
 
