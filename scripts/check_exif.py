@@ -18,7 +18,7 @@ def dirty_segments(data: bytes) -> list[str]:
 def main(dirs: list[str]) -> int:
     bad = 0
     for d in dirs:
-        for p in sorted(Path(d).rglob("*.jp*g")):
+        for p in sorted(p for p in Path(d).rglob("*") if p.suffix.lower() in {".jpg", ".jpeg"}):
             hits = dirty_segments(p.read_bytes())
             if hits:
                 print(f"DIRTY  {p}  ->  {', '.join(hits)}")

@@ -17,12 +17,14 @@ def strip(path: Path) -> None:
         raise SystemExit(f"{path}: not a JPEG")
     out = bytearray(b"\xff\xd8")
     i = 2
+    found_sos = False
     while i < len(data) - 1:
         if data[i] != 0xFF:
             raise SystemExit(f"{path}: corrupt segment at byte {i}; re-export the image manually")
         marker = data[i + 1]
         if marker == 0xDA:          # start-of-scan: copy the rest verbatim
             out += data[i:]
+            found_sos = True
             break
         if marker == 0xFF:          # fill byte
             i += 1
@@ -31,6 +33,8 @@ def strip(path: Path) -> None:
         if marker not in DROP:
             out += data[i : i + 2 + seglen]
         i += 2 + seglen
+    if not found_sos:
+        raise SystemExit(f"{path}: no SOS marker found — file truncated or corrupt; not writing output")
     path.write_bytes(bytes(out))
     print(f"stripped {path.name}: {len(data)} -> {len(out)} bytes")
 
