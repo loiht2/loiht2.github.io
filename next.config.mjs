@@ -1,22 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  images: {
-    unoptimized: true,
-  },
-  // Performance optimizations
   reactStrictMode: true,
   poweredByHeader: false,
-  compress: true,
-  
-  // Compiler optimizations for production
-  compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains" },
+        ],
+      },
+    ];
   },
-  
-  // Experimental features for better performance
-  experimental: {
-    optimizeCss: true,
+  async redirects() {
+    return [
+      { source: "/blog", destination: "/writing", permanent: true },
+      { source: "/posts/hello-world", destination: "/writing/hello-world", permanent: true },
+      { source: "/posts/:path*", destination: "/writing/:path*", permanent: true },
+    ];
   },
 };
 
