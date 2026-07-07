@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "test": "node --test tests/",
+    "test": "node --test",
     "check:privacy": "python3 scripts/check_exif.py public/assets/images"
   },
   "dependencies": {
