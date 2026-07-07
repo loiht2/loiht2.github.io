@@ -16,6 +16,8 @@ const NAV = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  // Close the mobile menu when the route changes (covers link clicks and back/forward).
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setOpen(false), [pathname]);
   const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 

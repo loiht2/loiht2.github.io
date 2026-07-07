@@ -6,6 +6,9 @@ import { useTheme } from "next-themes";
 export default function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  // Standard next-themes mount guard: theme is unknown during SSR, so defer the
+  // theme-dependent aria-label to after hydration to avoid a mismatch.
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
   const dark = resolvedTheme === "dark";
   return (
